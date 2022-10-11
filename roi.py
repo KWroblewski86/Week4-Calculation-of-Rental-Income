@@ -1,12 +1,14 @@
 class RentalProperty():
-    def __init__(self, income, expenses, cash_flow, roi):
-        self.income = income
-        self.expenses = expenses
-        self.cash_flow = cash_flow
-        self.roi = roi
+    # this is a good start but we're going to take the parameters out of instantiation so we don't have to have that data right away.  The choices are perfect tho!
+    def __init__(self):
+        self.income = 0
+        self.expenses = 0
+        self.cash_flow = 0
+        self.roi = 0
+        #I used 0's here but you could just as easily do None or whatever.  We know we're gonna need them but don't know what they are yet.
 
 
-
+# MAKE THIS A METHOD!!!!
 class Income():
     def __init__(self, rental, laundry, storage, other):
         self.rental = rental
@@ -18,25 +20,13 @@ class Income():
         monthly_income = input("What is your total monthly income?: ")
         total_monthly_income = int(monthly_income)
         print(total_monthly_income)
+#
+#I'm going to modify the Expenses class to a method to show you what I mean!\/ \/ \/ 
 
+# MAKE THIS A METHOD!!!!
 
-
-class Expenses():
-    def __init__(self, tax, insurance, utilities, hoa, lawn, snow, vacency,
-    repairs, capEx, property_management, mortgage):
-        self.tax = tax
-        self.insurance = insurance
-        self.utilities = utilities
-        self.hoa = hoa
-        self.lawn = lawn
-        self.snow = snow
-        self.vacency = vacency
-        self.repairs = repairs
-        self.capEx = capEx
-        self.property_management = property_management
-        self.mortgage = mortgage
-
-    def taxes(self):
+    def expense(self):
+        
         tax = input("Please enter the amount of your taxes: ")
         tax_float = float(tax)
 
@@ -73,12 +63,12 @@ class Expenses():
         monthly_expenses = tax_float + insurance_float + utilities_float + hoa_float + lawn_float
         + snow_float + vacency_float + repairs_float + capEx_float + prop_management_float + mortgage_float
         
-        total_monthly_expenses = round(monthly_expenses, 2)
-        return total_monthly_expenses
+        self.expenses = monthly_expenses
+        print(f'Your updated monthly expenses total- ${self.expenses}')
         
 
 
-
+# MAKE THIS A METHOD!!!!
 class CashFlow():
     def __init__(self):
 
@@ -86,7 +76,7 @@ class CashFlow():
             total_monthly_cash_flow = total_monthly_income - total_monthly_expenses
 
 
-
+# MAKE THIS A METHOD!!!!
 class ReturnOnInvestment():
      def __init__(self):
 
@@ -100,6 +90,16 @@ class ReturnOnInvestment():
             annual_cash_flow = total_monthly_cash_flow * 12
             cash_on_cash_return = annual_cash_flow / total_investment * 100
             print(cash_on_cash_return + "%")
+
+#Finally we need to code to run this as a program!  in psuedo-code:
+    #def run(self):
+        #self.rental_income()
+        # self.expense()
+        # self.ROI()
+
+#Last, instantiate the class and run it:
+# x = RentalProperty()
+# x.run()
 
 
 
